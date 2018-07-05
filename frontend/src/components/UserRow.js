@@ -3,6 +3,8 @@ import React from 'react';
 import {TableRow, TableRowColumn,} from 'material-ui/Table';
 
 const UserRow = ({customerID, name, surname, accounts}) => {
+
+    // calculating total balance from all accounts
     let totalBalance = accounts.length !== 0 ? accounts.reduce((total, account) => {
         return total += account.balance;
     },0) : 0;
