@@ -54,7 +54,6 @@ class BlueHarvestAPI extends Component {
     }
 
     handleUsersChange(users) {
-        debugger
         let prevState = Object.assign({}, this.state);
         let prevUsers = prevState.allUsersInfo;
         let newUsers = [...prevUsers, ...users];
