@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import UserCreateForm from './screens/UserCreateForm';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import UserTable from './screens/UserTable';
+import leftLogo from '../resources/left-logo.png'
+import rightLogo from '../resources/right-logo.png'
+import UserCreateForm from './screens/UserCreateForm';
 import UserUpdateForm from './screens/UserUpdateForm';
 
 class BlueHarvestAPI extends Component {
@@ -66,6 +68,10 @@ class BlueHarvestAPI extends Component {
             <div className="App">
                 <MuiThemeProvider>
                     <div>
+                        <div style={{marginBottom: "5%"}}>
+                            <img src={leftLogo}  alt="blue-harvest"/>
+                            <img src={rightLogo} alt="blue-harvest"/>
+                        </div>
                         <UserTable
                             users={this.state.allUsersInfo}
                             onUsersChange={this.handleUsersChange}/>
