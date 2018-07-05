@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import UserRow from "../UserRow";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow,} from 'material-ui/Table';
+import Service from "../service/Service";
 
 // created UserTable as a class in order to use the componentDidMount lifecycle method
 class UserTable extends React.Component {
@@ -10,18 +11,10 @@ class UserTable extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('http://localhost:8080/fetch')
-            .then((response) => {
-                console.log(response.data);
-                this.props.onUsersChange(response.data);
-            })
-            .catch((error) => {
-                console.log("Error occurred when fetching the data ...", error);
-            })
+        Service.get(this.props.onUsersChange);
     }
 
     render() {
-        console.log(this.props.users);
         return (
             <div>
                 <Table>
