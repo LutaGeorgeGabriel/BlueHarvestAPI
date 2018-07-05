@@ -6,13 +6,16 @@ import Service from "../service/Service";
 const style = {
     floatingLabelColor: {
         color: "#000"
+    },
+    fieldMargin: {
+        marginLeft: "25px",
     }
 };
 
-const UserUpdateWithCredit =({customerID, initialCredit, onCustomerIDChange, onInitialCreditChange}) => {
+const UserUpdateForm =({customerID, initialCredit, onCustomerIDChange, onInitialCreditChange}) => {
 
     return (
-        <div style={{backgroundColor: "yellow"}}>
+        <div>
             <TextField
                 floatingLabelText="Customer ID"
                 underlineShow={false}
@@ -20,13 +23,15 @@ const UserUpdateWithCredit =({customerID, initialCredit, onCustomerIDChange, onI
                 floatingLabelShrinkStyle={style.floatingLabelColor}
                 onChange={(event, value) => onCustomerIDChange(event, value)}/>
             <TextField
+                style={style.fieldMargin}
                 floatingLabelText="Initial Credit"
                 underlineShow={false}
                 value={initialCredit}
                 floatingLabelShrinkStyle={style.floatingLabelColor}
                 onChange={(event, value) => onInitialCreditChange(event, value)}/>
             <FlatButton
-                label="UPDATE"
+                style={style.fieldMargin}
+                label="UPDATE USER"
                 secondary={true}
                 onClick={() => Service.update({
                         customerID: customerID
@@ -35,4 +40,4 @@ const UserUpdateWithCredit =({customerID, initialCredit, onCustomerIDChange, onI
     )
 };
 
-export default UserUpdateWithCredit;
+export default UserUpdateForm;

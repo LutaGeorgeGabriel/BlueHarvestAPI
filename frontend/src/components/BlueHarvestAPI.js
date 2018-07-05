@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import UserCreateForm from './screens/UserCreateForm';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import UserInfoAll from './screens/UserInfoAll';
-import UserInfoByUUID from './screens/UserInfoByUUID';
-import UserUpdateWithCredit from './screens/UserUpdateWithCredit';
+import UserTable from './screens/UserTable';
+import UserUpdateForm from './screens/UserUpdateForm';
 
 class BlueHarvestAPI extends Component {
 
@@ -17,7 +16,7 @@ class BlueHarvestAPI extends Component {
             allUsersInfo: [],
             userUpdateWithCredit: {
                 customerID: '',
-                initialCredit: 0.0
+                initialCredit: ''
             }
         };
 
@@ -67,19 +66,15 @@ class BlueHarvestAPI extends Component {
             <div className="App">
                 <MuiThemeProvider>
                     <div>
+                        <UserTable
+                            users={this.state.allUsersInfo}
+                            onUsersChange={this.handleUsersChange}/>
                         <UserCreateForm
                             onNameChange={this.handleNameChange}
                             onSurnameChange={this.handleSurnameChange}
                             name={this.state.userCreateForm.name}
                             surname={this.state.userCreateForm.surname}/>
-                        {console.log(this.state)}
-                        <div style={{display: "inline-flex"}}>
-                            <UserInfoAll
-                                users={this.state.allUsersInfo}
-                                onUsersChange={this.handleUsersChange}/>
-                            <UserInfoByUUID/>
-                        </div>
-                        <UserUpdateWithCredit
+                        <UserUpdateForm
                             onCustomerIDChange={this.handleCustomerIDChange}
                             onInitialCreditChange={this.handleInitialCreditChange}
                             customerID={this.state.userUpdateWithCredit.customerID}
