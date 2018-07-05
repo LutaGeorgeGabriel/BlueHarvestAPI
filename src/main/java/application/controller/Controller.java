@@ -30,7 +30,7 @@ public class Controller {
     @PostMapping(value = "/update/{initialCredit}")
     public ResponseEntity updateUser(@PathVariable double initialCredit, @RequestBody User user) {
         userService.update(user, initialCredit);
-        return new ResponseEntity<>("post", HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping(value = "/fetch/{uuid}")
