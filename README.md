@@ -11,7 +11,7 @@ At root, the project is created as a Maven project, because I used Maven in orde
 
 I chose Groovy's Spock framework to write the tests for the API, because Groovy is a very flexible language, as it is “weakly” typed. Also, I generally consider Groovy to have far better options in terms of `Collections` than Java. The `APITest` class runs the tests as standalone using `@SpringBootTest` configuration.
 
-The three main entities of the API are: __User__,__Account__ and __Transaction__.
+The three main entities of the API are: __User__, __Account__ and __Transaction__.
 
 For each of these entities, I have followed a classic Spring web application architecture, by providing:
 
