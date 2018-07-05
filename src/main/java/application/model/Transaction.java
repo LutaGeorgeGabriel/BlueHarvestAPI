@@ -4,18 +4,28 @@ import java.util.UUID;
 
 public class Transaction {
 
-    private Account from;
-    private Account to;
+    private UUID fromAccount;
+    private UUID toAccount;
     private UUID uuid;
     private Long timestamp;
     private double amount;
 
-    public Transaction(Account from, Account to, UUID uuid, Long timestamp, double amount) {
-        this.from = from;
-        this.to = to;
+    public Transaction(UUID fromAccount, UUID toAccount, UUID uuid, Long timestamp, double amount) {
+        this.fromAccount = fromAccount;
+        //this.fromAccount.withdraw(amount);
+        this.toAccount = toAccount;
+        //this.toAccount.deposit(amount);
         this.uuid = uuid;
         this.timestamp = timestamp;
         this.amount = amount;
+    }
+
+    public UUID getFromAccount() {
+        return this.fromAccount;
+    }
+
+    public UUID getToAccount() {
+        return this.toAccount;
     }
 
     public UUID getUuid() {
