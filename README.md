@@ -15,9 +15,9 @@ The three main entities of the API are: __User__, __Account__ and __Transaction_
 
 For each of these entities, I have followed a classic Spring web application architecture, by providing:
 
-* __Model:__ Entity's class model with fields and methods
-* __Service:__ Provides CRUD operations for the respective entity
-* __Configuration:__ Provides the beans for entity's service, in order to be injected wherever they needed
+* __Model:__ Entity's class model with fields and methods.
+* __Service:__ Provides CRUD operations for the respective entity.
+* __Configuration:__ Provides the beans for entity's service, in order to be injected wherever needed.
 * __Repository:__ As the challenge implied saving the objects in memory, I have created a `UserRepo` entity to store all the data during runtime. This proved to be also very useful when writing the tests as well.
 * __Controller:__ Basic REST API which supports creating, updating and fetching the users based on different parameters.
 
