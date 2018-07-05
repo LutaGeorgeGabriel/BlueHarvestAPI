@@ -10,6 +10,6 @@ import static application.utils.Utils.generateUUID;
 public class TransactionService {
 
     public Transaction create(Account from, Account to, double amount) {
-        return new Transaction(from, to, generateUUID(), new Date().getTime(), amount);
+        return new Transaction(from.getAccountID(), to.getAccountID(), generateUUID(), new Date().getTime(), amount);
     }
 }
