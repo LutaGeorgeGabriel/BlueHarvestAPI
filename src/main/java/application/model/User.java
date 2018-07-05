@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-// TODO: maybe use Lombok?
-
+// tip: maybe use Lombok (or refactor in Groovy) for generating getters and setters
 public class User {
 
     private UUID customerID;

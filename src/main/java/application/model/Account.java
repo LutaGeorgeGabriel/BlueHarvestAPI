@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+// Lombok / Groovy ?
 public class Account {
+
+    // used user UUID to link account to user
     private UUID user;
     private UUID accountID;
     private double balance;

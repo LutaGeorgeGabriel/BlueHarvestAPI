@@ -26,8 +26,11 @@ public class UserService {
     public void update(User user, double initialCredit) {
         List<User> users = userRepo.getUsers().stream()
                 .map($user -> {
+                    // filtering for the user with the received uuid
                     if ($user.getCustomerID().equals(user.getCustomerID())) {
+                        // creating account linked to the respective user
                         Account account = accountService.create($user, initialCredit);
+                        // adding the account to the user's account list
                         $user.addAccount(account);
                     }
                     return $user;

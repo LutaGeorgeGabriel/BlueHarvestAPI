@@ -2,6 +2,7 @@ package application.model;
 
 import java.util.UUID;
 
+// Lombok / Groovy ?
 public class Transaction {
 
     private UUID fromAccount;
@@ -12,9 +13,7 @@ public class Transaction {
 
     public Transaction(UUID fromAccount, UUID toAccount, UUID uuid, Long timestamp, double amount) {
         this.fromAccount = fromAccount;
-        //this.fromAccount.withdraw(amount);
         this.toAccount = toAccount;
-        //this.toAccount.deposit(amount);
         this.uuid = uuid;
         this.timestamp = timestamp;
         this.amount = amount;

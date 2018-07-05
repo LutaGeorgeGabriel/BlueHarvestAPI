@@ -7,7 +7,7 @@ The following assessment consists in two parts:
 
 ## Backend
 
-At root, the project is created as a Maven project, because I used Maven in order to manage all the dependencies involved. The `pom.xml` file is also created using [Spring Initializr](https://start.spring.io/) because it is tightly coupled with Groovy, so I needed to have a custom maven configuration in order to run on Groovy as well.
+At root, the project is created as a SpringBoot application. I used Maven as a software management tool, in order to manage all the dependencies involved. The `pom.xml` file is also created using [Spring Initializr](https://start.spring.io/) because it is tightly coupled with Groovy, so I needed to have a custom maven configuration in order to run on Groovy as well.
 
 I chose Groovy's Spock framework to write the tests for the API, because Groovy is a very flexible language, as it is “weakly” typed. Also, I generally consider Groovy to have far better options in terms of `Collections` than Java. The `APITest` class runs the tests as standalone using `@SpringBootTest` configuration.
 

@@ -3,16 +3,15 @@ package api
 import application.Application
 import application.model.User
 import application.repository.UserRepo
-import groovy.json.JsonSlurper
 import groovyx.net.http.RESTClient
+import spock.lang.Specification
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Shared
-import spock.lang.Specification
-import static groovyx.net.http.ContentType.*
 import spock.lang.Stepwise
 
 import static application.utils.Utils.generateUUID
+import static groovyx.net.http.ContentType.JSON
 
 @SpringBootTest(classes = [Application], webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Stepwise
@@ -23,9 +22,6 @@ class APITest extends Specification {
 
     @Autowired
     public UserRepo userRepo
-
-    def jsonSlurper = new JsonSlurper()
-
 
     def "Fetch user by UUID"() {
         given:

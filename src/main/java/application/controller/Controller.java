@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 import java.util.UUID;
 
+// bypass the cross-origin resource sharing, imposed by the Chrome browser and allow requests from localhost:3000
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class Controller {
