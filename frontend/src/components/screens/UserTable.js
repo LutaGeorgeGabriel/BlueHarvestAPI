@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import UserRow from "../UserRow";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow,} from 'material-ui/Table';
 import Service from "../service/Service";
