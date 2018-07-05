@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// encapsulated axios functionality in iffy
 const Service = (function() {
 
     const endpoint = 'http://localhost:8080';
@@ -24,10 +25,11 @@ const Service = (function() {
             })
     };
 
-    const fetch = (uuid = '') => {
+    const get = (callback, uuid = '') => {
         return axios.get(`${endpoint}/fetch/${uuid}`)
             .then((response) => {
                 console.log(response.data);
+                callback(response.data);
             })
             .catch((error) => {
                 console.log("Error occurred when fetching the data ...", error);
@@ -35,7 +37,7 @@ const Service = (function() {
     };
 
     return {
-        fetch: fetch,
+        get: get,
         update: update,
         create: create
     }
