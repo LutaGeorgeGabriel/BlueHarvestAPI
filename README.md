@@ -32,6 +32,13 @@ The (user defined) root of the application is `BlueHarvestAPI` and it is the onl
 
 The web app offers the possibility of creating and updating a specific user and also to visualize the fetched data over a table component, reused from [Material-UI](https://v0.material-ui.com/#/).
 
+### Steps to run the app:
+* 1st - enable CORS (download CORS chrome extension and add `http://localhost:3000` and `http://localhost:8080` to _Intercepted URLs_) 
+* 2nd - open a new terminal tab and `npm start` inside _BlueHarvestAPI/frontend_
+* 3rd - open a new terminal tab and `mvn spring-boot:run` inside  _BlueHarvestAPI/_
+* 4th - open a new chrome tab and access `http://localhost:3000`
+* 5th - think about how tiny we are and how we sit on a tiny piece of rock in the endless universe
+
 ## Screenshot
 
 ![frontend](https://raw.githubusercontent.com/LutaGeorgeGabriel/BlueHarvestAPI/master/frontend/src/resources/frontend.png)
