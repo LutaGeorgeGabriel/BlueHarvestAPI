@@ -32,3 +32,6 @@ The (user defined) root of the application is `BlueHarvestAPI` and it is the onl
 
 The web app offers the possibility of creating and updating a specific user and also to visualize the fetched data over a table component, reused from [Material-UI](https://v0.material-ui.com/#/).
 
+## Screenshot
+
+![frontend](https://raw.githubusercontent.com/LutaGeorgeGabriel/BlueHarvestAPI/master/frontend/src/resources/frontend.png)
