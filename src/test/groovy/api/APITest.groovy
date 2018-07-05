@@ -3,11 +3,13 @@ package api
 import application.Application
 import application.model.User
 import application.repository.UserRepo
+import groovy.json.JsonSlurper
 import groovyx.net.http.RESTClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Shared
 import spock.lang.Specification
+import static groovyx.net.http.ContentType.*
 import spock.lang.Stepwise
 
 import static application.utils.Utils.generateUUID
@@ -21,6 +23,8 @@ class APITest extends Specification {
 
     @Autowired
     public UserRepo userRepo
+
+    def jsonSlurper = new JsonSlurper()
 
 
     def "Fetch user by UUID"() {
@@ -65,5 +69,45 @@ class APITest extends Specification {
 
         cleanup:
         userRepo.dump()
+    }
+
+    def "Create new account for updated user"() {
+        given:
+        User user = new User(UUID.fromString("d26fb9d4-875a-4041-b684-9c8e91eb7aca"),"John","Doe", [])
+        userRepo.addUser(user)
+        def response = null
+
+        when:
+        def result = client.post(path: "/update/0",
+                requestContentType: JSON,
+                body: [ customerID: "d26fb9d4-875a-4041-b684-9c8e91eb7aca"]) { resp ->
+            response = resp.status
+        }
+
+        then:
+        response == 200
+
+        cleanup:
+        userRepo.dump()
+    }
+
+    def "Create new user"() {
+        given:
+        def response = null
+
+        when:
+        def result = client.post(path: "/create",
+                requestContentType: JSON,
+                body: [
+                        customerID: "d26fb9d4-875a-4041-b684-9c8e91eb7aca",
+                        name: "John",
+                        surname: "Doe" ]) {resp -> response = resp.status}
+
+        then:
+        response == 200
+        with(userRepo){
+            users.get(0).name == "John"
+            users.get(0).surname == "Doe"
+        }
     }
 }
